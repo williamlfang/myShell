@@ -38,6 +38,7 @@ LimitNPROC=10000
 systemctl --system daemon-reload 
 systemctl restart mariadb.service
 
+show variables like '%open_files_limit%';
 ## 2. 配置/etc/my.cnf ----------------------------------------------------------
 
 vim /etc/my.cnf
@@ -47,4 +48,6 @@ max_connections = 10000
 
 ## 重启后生效
 systemctl restart mariadb.service
+
+show variables like "max_connections";
 ## =============================================================================
